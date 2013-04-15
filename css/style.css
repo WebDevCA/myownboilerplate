@@ -1,0 +1,1189 @@
+/*
+
+File Name: initialize.css
+Description: 
+Version: 0.81 March 5, 2013
+Author: Christian Ziebarth
+Author Twitter: http://www.twitter.com/cmziebarth
+
+Also, much of this comes from:
+
+HTML5 Boilerplate 3.0.2 CSS: h5bp.com/css
+https://github.com/murtaugh/HTML5-Reset/blob/master/_/css/style.css
+Andy Clarke's 320 and Up
+http://webdesignerwall.com/tutorials/responsive-design-with-css3-media-queries
+http://tjkdesign.com/ez-css/css/base.css
+
+A note about formatting, layout: HTML elements are shown in uppercase; in other style sheets outside of this one it is ubiquitous to render HTML elements in lowercase; this probably comes from around 2001 when XHTML was en vogue and people were told to put HTML elements in lowercase, but this actually only applied to elements within a valid XHTML document; it was never a requirement in style sheets (unless you were going to use XML rendered as XHTML, which nobody ever really did). Uppercase is used here because when reading through a style sheet it helps to distinguish HTML elements from id's, classes, type selectors, etc.
+
+To create a final, production version of your style sheet we suggest you remove any comments, minify any white space as you see fit, and use the "CSS Usage" Firebug supplement to scan for any style rules that are not being used by your site and remove those or comment them out as you see fit.
+
+Make sure you are taking advantage of CSS pseudo-classes: http://www.sitepoint.com/getting-to-know-css3-selectors-structural-pseudo-classes/ and http://www.sitepoint.com/getting-to-know-css3-selectors-other-pseudo-classes/
+
+*/
+
+
+
+/* Begin "normalize" section. IMPORTANT: This section is only a comment so that style rules that have already been declared by and are universally consistent across default browser style sheets won't have to be processed again if you are going to use them as they are, but at least when they are here in comments you can see at a glance what they are. For any rules that are here that you want to change the attribute value of you can move them to the reset/base section of this stylesheet, or elsewhere as preferred. Most of this information comes from: http://css-class.com/test/css/defaults/UA-style-sheet-defaults.htm Please refer to this site for more information about default browser style sheets.
+
+
+ADDRESS, BLOCKQUOTE, BODY, CENTER, DD, DIV, DT, FIELDSET,
+FORM, FRAME, FRAMESET, H1, H2, H3, H4, H5, H6,
+MENU, NOFRAMES, OL, P, PRE, UL
+{
+	display: block;
+}
+
+HEAD
+{
+	display: none;
+}
+ 
+ADDRESS, CITE, EM, I, VAR
+{
+	font-style: italic;
+}
+
+DEL, S, STRIKE
+{
+	text-decoration: line-through;
+}
+
+B, H1, H2, H3, H4, H5, H6, STRONG, TH
+{
+	font-weight: bold;
+	font-weight: 401;
+	font-weight: 700;
+	font-weight: bolder;
+	(The elements listed here use different values [depending on the browser] for the "font-weight" property but each one has the net effect of making the text bold. It is up to the developer to decide if they want to reset these on their own for even greater consistency.)
+}
+
+INS, U
+{
+	text-decoration: underline;
+}
+
+PRE
+{
+	white-space: pre;
+}
+	
+ End "normalize" section. */
+
+
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+ARTICLE, ASIDE, DETAILS, FIGCAPTION, FIGURE, FOOTER, HEADER, HGROUP, MAIN, NAV, SECTION
+{
+	display: block;
+}
+
+HTML, BODY, BODY DIV, SPAN, OBJECT, IFRAME, H1, H2, H3, H4, H5, H6, P,
+BLOCKQUOTE, PRE, ABBR, ADDRESS, CITE, CODE, DEL, DFN, EM, IMG, INS, KBD,
+Q, SAMP, SMALL, STRONG, SUB, SUP, VAR, B, I, DL, DT, DD, OL, UL, LI, FIELDSET,
+FORM, LABEL, LEGEND, TABLE, CAPTION, TBODY, TFOOT, THEAD, TR, TH, TD,
+ARTICLE, ASIDE, FIGURE, FOOTER, HEADER, HGROUP, MAIN, MENU, NAV, SECTION, TIME, MARK, AUDIO, VIDEO
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+AUDIO, CANVAS, VIDEO
+{
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+AUDIO:not([controls]), [hidden]
+{
+	display: none;
+}
+
+
+/*  Begin "reset/base" section after this comment ends. This section is generally for rules defined in default browser style sheets where there is some variance in the values that are set for them so that they can now have a consistent style applied to them across any browsers, platforms and devices that will use this stylesheet. The values here will generally come from well-known reset style sheets, such as Eric Meyer's, Yahoo's, HTML5 Boilerplate's, etc. They can be kept the same, removed, altered or moved as the developer sees fit. Examples shown here are only examples in this early version. */
+
+
+ /* Apply a natural box layout model to all elements; http://paulirish.com/2012/box-sizing-border-box-ftw/ also see: http://tympanus.net/codrops/2012/10/25/kick-start-your-project-a-collection-of-handy-css-snippets/ */
+*, *:before, *:after
+{
+	/* See https://github.com/Schepp/box-sizing-polyfill for IE6/7 */
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* See https://github.com/Schepp/CSS-Filters-Polyfill */
+
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 2. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ */
+ 
+
+HTML
+{
+	font-size: 62.5%; /* Use rem's for font sizing; See http://csswizardry.com/2011/05/font-sizing-with-rem-could-be-avoided/ */
+	-webkit-font-smoothing: antialiased;
+	-webkit-overflow-scrolling: touch;
+	-webkit-tap-highlight-color: rgb(52,158,219);
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	overflow-y: scroll;
+}
+
+/* prevent BG image flicker upon hover */
+.lt-ie7 HTML
+{
+	filter: expression(document.execCommand("BackgroundImageCache", false, true));
+}
+
+HTML, BUTTON, INPUT, SELECT, TEXTAREA
+{
+	font-family: sans-serif;
+	color: #222;
+}
+
+BODY
+{
+	background-color: transparent;
+	/* color: rgb(40,40,40); 320 and Up preference */
+	margin: 0 auto;
+	font-family: Helmet, Freesans, sans-serif; /* new Linux- and Windows-friendly sans-serif font stack: http://mky.be/fontstack */
+	/* font-family: Cambria, Georgia, Times, "Times New Roman"; 320 and Up preference */
+	font-size: 1.3rem; /* More on font sizing: http://www.sitepoint.com/new-css3-relative-font-size/ */
+	line-height: 1.4;
+	padding: 0;
+	/* text-rendering: optimizeLegibility; Consider using the "text-rendering" property. See https://developer.mozilla.org/en/CSS/text-rendering for more information. */
+	/* Also consider using the -moz-font-feature-settings (or otherwise prefixed or non-prefixed) property to handle alternates, ligatures, small caps, kerning, fractions, etc. See http://ie.microsoft.com/testdrive/Graphics/opentype/opentype-fontbureau/index.html for for more information. */
+}
+
+/* using local fonts? Make sure to read up on Paul Irish's Bulletproof @font-face syntax: http://mky.be/font-face/bulletproof/ */
+
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+   
+IMG, OBJECT, EMBED
+{
+	max-width: 100%;
+	height: auto; /* Keep? */
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i and twitter.com/miketaylr/status/12228805301
+ * These selection declarations have to be separate
+ * Also: hot pink! (or customize the background color to match your design)
+ */
+ 
+
+::-webkit-selection
+{
+	background: #fe57a1;
+	color: #fff;
+	text-shadow: none;
+}
+
+::-moz-selection
+{
+	background: #fe57a1;
+	color: #fff;
+	text-shadow: none;
+}
+
+::selection
+{
+	background: #fe57a1;
+	color: #fff;
+	text-shadow: none;
+}
+
+METER
+{
+	-moz-appearance: progressbar; /* From: https://github.com/ao5357/hawiducss/blob/gh-pages/styles.css */
+}
+
+/* Look into :target pseudo-class https://developer.mozilla.org/en-US/docs/CSS/:target */
+
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+   
+/* Remember that link pseudo-classes can also be combined, such as A:visited:hover (to define the state of an anchor element that has already been visited and is now being hovered over). */
+
+A
+{
+	color: #00e;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+/*	j.mp/webkit-tap-highlight-color */
+A:link
+{
+	-webkit-tap-highlight-color: #fcd700;
+} 
+
+A:visited
+{
+	color: #551a8b;
+}
+
+A:hover
+{
+	color: #06e;
+}
+
+A:focus, A:focus
+{
+	outline: thin dotted;
+}
+
+/* Improve readability when focused and hovered in all browsers: h5bp.com/h */
+
+A:hover, A:active
+{
+	outline: none; /* Accessible focus treatment people.opera.com/patrickl/experiments/keyboard/test */
+}
+
+
+/* =============================================================================
+   Typography
+   ========================================================================== */
+
+ABBR[title], DFN[title]
+{
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+BLOCKQUOTE
+{
+	margin: 1em 40px;
+}
+
+DFN
+{
+	font-style: italic;
+}
+
+H1
+{ 
+	margin-bottom: .75em;
+	font-size: 3em; /* 48 / 16 = 3 */
+	line-height: 1.2;
+}
+
+H2
+{ 
+	margin-bottom: .75em;
+	font-size: 2em; /* 36 / 16 = 2 */
+	line-height: 1.2;
+}
+
+H3
+{ 
+	margin-bottom: 1em;
+	font-size: 1.5em; /* 24 / 16 = 1.5 */
+	line-height: 1.3;
+}
+
+H4
+{ 
+	margin-bottom: 1.25em;
+	font-size: 1.25em; /* 20 / 16 = 1.25 */
+	line-height: 1.25;
+}
+
+H5
+{ 
+	margin-bottom: 1.5em;
+	font-size: 1em; /* 16 / 16 = 1 */
+}
+
+H6
+{ 
+	font-size: 1em; /* 16 / 16 = 1 */
+}
+
+HR
+{
+	-moz-box-sizing: content-box;
+    box-sizing: content-box;
+	.lt-ie8 display: block; 
+	height: 1px;
+	border: 0;
+    border-style: inset;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+INS
+{
+	background: #ff9;
+	color: #000;
+	text-decoration: none;
+}
+
+MARK
+{
+	background: #ff0;
+	color: #000;
+	font-style: italic;
+	font-weight: bold;
+}
+
+P
+{
+	/* http://www.w3.org/TR/css3-text/#hyphenation */
+	-webkit-hyphens: auto;
+	-webkit-hyphenate-character: "\2010";
+	-webkit-hyphenate-limit-after: 1;
+	-webkit-hyphenate-limit-before: 3;
+	-moz-hyphens: auto;
+	hyphens: auto; 
+	text-align: justify;
+}
+
+P, OL, UL, DL, ADDRESS
+{ 
+	margin-bottom: 1.5em;
+}
+
+/* Redeclare monospace font family: h5bp.com/j */
+PRE, CODE, KBD, SAMP
+{
+	font-family: monospace, serif;
+	_font-family: 'courier new', monospace;
+	font-size: 1em;
+}
+
+/* Improve readability of pre-formatted text in all browsers */
+PRE
+{
+	white-space: pre; /* CSS2 */
+	white-space: pre-wrap; /* CSS 2.1 */    /* Chrome & Safari */
+	white-space: -moz-pre-wrap;  /* Mozilla since 1999 */
+	white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word; /* IE */
+}
+
+BLOCKQUOTE, Q
+{
+	quotes: none;
+}
+
+BLOCKQUOTE:before, 
+BLOCKQUOTE:after,
+Q:before, Q:after
+{
+	content: "";
+	content: none;
+}
+
+/* blockquote{background:#f9f9f9;border-left:1em solid #eee;margin:1.5em 1em;padding:.5em 1em;quotes:'\201C' '\201C' '\201C' '\201C';}
+blockquote:before{color:#808080;content:open-quote;font-size:4em;line-height:.1em;margin-right:.25em;vertical-align:-.4em;}
+blockquote > :first-child{display:inline;}
+blockquote > :last-child{margin-bottom:0;}
+q{quotes:"\201C""\201D""\2018""\2019";}
+hr{background-color:#808080;border-width:0;color:#808080;height:.2em;line-height:0;margin:1.8571em 2em;page-break-after:always;text-align:center;}
+hr:after{content:"\a7\a7";font-size:1.25em;} This stuff comes from https://github.com/ao5357/hawiducss/blob/gh-pages/styles.css and may be helpful. */
+
+/* Also see http://css-tricks.com/snippets/css/cross-browser-hr-styling/ */
+
+SMALL
+{
+	font-size: 85%;
+}
+
+/* Position subscript and superscript content without affecting line-height: h5bp.com/k and gist.github.com/413930 */
+SUB, SUP
+{
+	font-size: 75%;
+	font-variant: small-caps;
+	letter-spacing: .1em;
+	line-height: 0em;
+	position: relative;
+	text-transform: lowercase;
+	vertical-align: baseline;
+	margin-right:.4em;
+}
+
+SUP
+{
+	top: -0.5em;
+}
+
+SUB
+{
+	bottom: -0.25em;
+}
+
+
+/* =============================================================================
+   Lists
+   ========================================================================== */
+
+UL, OL
+{
+	margin: 1em 0;
+	padding: 0 0 0 40px;
+}
+
+DD, DL
+{
+	margin: 0 0 0 40px;
+}
+
+DT
+{ 
+	font-weight: normal; /* http://tjkdesign.com/ez-css/css/base.css suggests using "bold" here */
+}
+
+LI UL, 
+LI OL
+{ 
+	margin: 0;
+	font-size: 1em;
+}
+
+OL LI, UL OL LI
+{
+	list-style-type: decimal;
+}
+
+UL LI
+{
+	list-style-type: disc;
+}
+
+UL UL LI
+{
+	list-style-type: circle;
+}
+
+UL UL UL LI
+{
+	list-style-type: square;
+}
+
+OL OL LI
+{
+	list-style-type: lower-alpha;
+}
+
+OL OL OL LI
+{
+	list-style-type: lower-roman;
+}
+
+NAV UL, NAV OL
+{
+	list-style: none;
+	list-style-image: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+
+/*
+ * 1. Improve image quality when scaled in IE7: h5bp.com/d
+ * 2. Remove the gap between images and borders on image containers: h5bp.com/i/440
+ */
+
+IMG
+{
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+	vertical-align: middle; /* Or is bottom a better value? See: http://tjkdesign.com/ez-css/css/base.css */
+	width: auto\9; /* ie8 */
+}
+
+
+/*
+ * Correct overflow not hidden in IE9
+ */
+
+SVG:not(:root)
+{
+	overflow: hidden;
+}
+
+FIGURE
+{
+	margin-bottom: 1.5em;
+}
+
+FIGURE IMG,
+FIGURE OBJECT,
+FIGURE EMBED
+{
+	margin-bottom: .75em;
+	max-width: 100%;
+}
+
+FIGCAPTION
+{
+	display: block;
+	font-weight: normal;
+}
+
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+
+FORM
+{
+	margin: 0;
+}
+
+FIELDSET
+{
+	border: 0;
+	line-height: 1; /* from: http://tjkdesign.com/ez-css/css/base.css */
+	margin: 0;
+	padding: 0;
+}
+
+/* Indicate that 'label' will shift focus to the associated form element */
+LABEL
+{
+	font-weight: normal;
+	cursor: pointer;
+}
+
+/*
+ * 1. Correct color not inheriting in IE6/7/8/9
+ * 2. Correct alignment displayed oddly in IE6/7
+ */
+
+LEGEND
+{
+	border: 0;
+	*margin-left: -7px;
+	padding: 0;
+	white-space: normal;
+}
+
+/*
+ * 1. Correct font-size not inheriting in all browsers
+ * 2. Remove margins in FF3/4 S5 Chrome
+ * 3. Define consistent vertical alignment display in all browsers
+ */
+
+BUTTON, INPUT, SELECT, TEXTAREA
+{
+	font-size: 99%;
+	margin: 0;
+	vertical-align: baseline;
+	*vertical-align: middle;
+}
+
+BUTTON, INPUT, SELECT, TEXTAREA, OPTGROUP, OPTION
+{
+	font: inherit;
+	text-transform:inherit;
+	line-height: inherit !important;
+}
+
+/*
+ * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
+ */
+
+BUTTON, INPUT
+{
+	line-height: normal;
+	*overflow: visible;
+}
+
+/* make buttons play nice in IE */
+BUTTON
+{
+	width: auto;
+	overflow: visible;
+}
+
+/*
+ * 1. Display hand cursor for clickable form elements
+ * 2. Allow styling of clickable form elements in iOS
+ * 3. Correct inner spacing displayed oddly in IE7 (doesn't effect IE6)
+ */
+
+BUTTON, INPUT[type="button"], INPUT[type="reset"], INPUT[type="submit"], INPUT[type="email"]
+{
+	cursor: pointer;
+	-webkit-appearance: button;
+}
+
+.ie6 INPUT
+{
+	vertical-align: text-bottom;
+}
+
+::-webkit-input-placeholder
+{
+	font-size: .875em; 
+	line-height: 1.4;
+}
+
+INPUT:-moz-placeholder
+{ 
+	font-size: .875em; 
+	line-height: 1.4;
+}
+
+INPUT:placeholder
+{ 
+	font-size: .875em; 
+	line-height: 1.4;
+}
+
+/*
+ * Re-set default cursor for disabled elements
+ */
+
+BUTTON[disabled], INPUT[disabled]
+{
+	cursor: default;
+}
+
+/*
+ * Consistent box sizing and appearance
+ */
+ 
+INPUT[type="radio"]
+{
+	vertical-align: text-bottom;
+}
+
+INPUT[type="checkbox"]
+{
+	vertical-align: bottom;
+	*vertical-align: baseline;
+}
+
+INPUT[type="checkbox"], INPUT[type="radio"]
+{
+	box-sizing: border-box;
+	padding: 0;
+	*width: 13px;
+	*height: 13px;
+}
+
+INPUT[type="search"]
+{
+	-webkit-appearance: textfield;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+INPUT[type="search"]::-webkit-search-decoration, INPUT[type="search"]::-webkit-search-cancel-button
+{
+	-webkit-appearance: none;
+}
+
+/*
+ * Remove inner padding and border in FF3/4: h5bp.com/l
+ */
+
+BUTTON::-moz-focus-inner, INPUT::-moz-focus-inner
+{
+	border: 0;
+	padding: 0;
+}
+
+/*
+ * 1. Remove default vertical scrollbar in IE6/7/8/9
+ * 2. Allow only vertical resizing
+ */
+ 
+SELECT
+{
+	background-color: transparent;
+}
+
+TEXTAREA
+{
+	overflow: auto;
+	vertical-align: top;
+	resize: vertical;
+}
+
+/* Colors for form validity */
+INPUT:valid, TEXTAREA:valid
+{
+	
+}
+
+INPUT:invalid, TEXTAREA:invalid
+{
+	background-color: #f0dddd;
+}
+
+
+/* =============================================================================
+   Tables. Tables still need cellspacing="0" in the markup (according to your preference)
+   ========================================================================== */
+   
+TABLE
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: inherit;
+	font: 100%;
+	margin-bottom: 1.4em;
+}
+
+CAPTION
+{ 
+	background-color: transparent;
+}
+
+LEGEND
+{
+	color: #000; /* Change color value here accordingly. */
+	padding-bottom: .5em; /* (Padding is used so Internet Explorer does not cut-off descenders in letters like p, g, etc.; see: http://tjkdesign.com/ez-css/css/base.css) */
+}
+
+CAPTION, TD, TH
+{
+	padding: 0px;
+	/* padding: .25em 10px .25em 5px; 320 and Up Preference */
+}
+
+TD, TD IMG
+{
+	vertical-align: top;
+}
+
+TH
+{
+	vertical-align: bottom;
+}
+
+TBODY TH
+{
+	text-align: left; /* Suggested by http://tjkdesign.com/ez-css/css/base.css; "right" may actually be a better value. */
+}
+
+
+/* =============================================================================
+   Chrome Frame Prompt
+   ========================================================================== */
+
+.chromeframe
+{
+	margin: 0.2em 0;
+	background: #ccc;
+	color: black;
+	padding: 0.2em 0;
+}
+
+
+
+
+/*  Begin "website-specific styles" section after this comment ends. This is where anything goes depending on the needs of the project; generally for rules that need to be concocted, that haven't been addressed yet by the normalize and reset/base styles. If you are going to use media queries (and you probably should) then this section will mostly be for styles that will apply to any size layout, any browser, any device, etc. */
+
+
+
+
+
+
+
+
+
+
+/*  End "website-specific styles." */
+
+
+/* ==|== media queries ======================================================
+
+	Remove or comment out media queries you are not using.
+
+   ========================================================================== */
+   
+ /* iPhone portrait mode; This also hopefully properly targets the Blackberry browser
+
+		Inherits styles from: Default Layout. */
+
+@media only screen and (max-width: 479px)
+{
+
+}/*/mediaquery*/
+
+
+/* Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
+   consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/
+   
+   Wide Mobile Layout; like landscape mode on iPhone and iPod touch; screen *seems to be* 491 pixels across
+
+Inherits styles from: Default Layout, Mobile Layout. */
+
+@media only screen and (min-width: 480px)
+{
+}/*/mediaquery*/
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 569px)
+{
+
+}/*/mediaquery*/
+
+
+@media screen and (max-device-width: 480px)
+{
+
+}/*/mediaquery*/
+
+
+@media all and (orientation: portrait)
+{
+	
+}/*/mediaquery*/
+
+
+@media all and (orientation: landscape)
+{
+	
+}/*/mediaquery*/
+
+/*		Tablet Layout: 768px.
+
+		Inherits styles from: Default Layout. 
+
+These and other media queries like it used here come from http://lessframework.com/; these might need a lot of work; as of May 16, 2011, this media query seems to be properly targeting iPad portrait */
+
+@media only screen and (min-width: 768px)
+{
+}/*/mediaquery*/
+
+
+/* Styles for desktop and large screen ----------- */
+
+/*styles for 800px and up!*/
+@media only screen and (min-width: 800px)
+{
+  /* Styles */
+}/*/mediaquery*/
+
+
+@media only screen and (min-width: 992px)
+{
+  /* Style adjustments for landscape mode and browsers with widths equal to or greater than iPad landscape mode goes here; as of May 17, 2011, this media query seems to be properly targeting iPad landscape */
+}/*/mediaquery*/
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 
+1024px) { /* iPad 1, 2, iPadMini */ }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 
+1024px) and (-webkit-min-device-pixel-ratio: 2) { /* iPad 3, 4 */ }
+
+
+/*  The following are various media queries (or selectors that work as such) targeting various browsers. They may or may not be needed. */
+
+/*ie 6*/
+* html .selector
+{
+}
+
+/*ie 7 */
+*+html . selector
+{
+}
+
+/*ie 8*/
+@media \0screen
+{
+}/*/mediaquery*/
+
+/*ie 9*/
+:root . selector
+{
+}
+
+/*Ie 7 and less */
+. selector
+{
+}
+
+/*All ie */
+.selector
+{
+}
+
+/* The following is supposed to target only Webkit browsers (and it seems to work): */
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+
+}/*/mediaquery*/
+
+
+/* The following is supposed to target only Chrome browsers http://www.republicof3.com/a-few-cross-browser-css-hacks-every-developer-should-know/?goback=.gde_2071438_member_107474833: */
+
+body:nth-of-type(1) .selector
+{
+}
+
+
+/* The following is supposed to target only Mozilla browsers http://www.pixelastic.com/blog/68:firefox-only-css-rules and http://www.republicof3.com/a-few-cross-browser-css-hacks-every-developer-should-know/?goback=.gde_2071438_member_107474833: */
+
+/*Firefox 2.0 */
+html>/**/body .selector, x:-moz-any-link
+{
+}
+
+/*Firefox 3.0 */
+html>/**/body .selector, x:-moz-any-link, x:default
+{
+}
+
+/*All Firefox*/
+@-moz-document url-prefix()
+{
+}
+
+
+/* The following is supposed to target only Opera browsers http://www.republicof3.com/a-few-cross-browser-css-hacks-every-developer-should-know/?goback=.gde_2071438_member_107474833: */
+
+@media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0)
+{
+}/*/mediaquery*/
+
+
+/* Targets Opera browsers, possibly 9.5 and above: http://preview.tinyurl.com/874x89m*/
+*:-o-prefocus
+{
+}
+
+
+/* iPhone 4, Opera Mobile 11 and other high pixel ratio devices ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5) {
+  /* Styles */
+}/*/mediaquery*/
+
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2), /* Looks like a bug, so may want to add: */
+only screen and (   -moz-min-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+    /* Your retina specific stuff here */
+}
+
+/* @media (min--moz-device-pixel-ratio: 1.5),
+       (-o-min-device-pixel-ratio: 3/2),
+       (-webkit-min-device-pixel-ratio: 1.5),
+       (min-device-pixel-ratio: 1.5),
+       (min-resolution: 144dpi),
+       (min-resolution: 1.5dppx) {
+
+Retina rules!
+
+} */ /* from: http://mir.aculo.us/2012/11/28/the-ultimate-target-retina-screens-media-query/ */
+
+
+
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+
+.ir
+{
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+} /* from: http://tympanus.net/codrops/2012/10/25/kick-start-your-project-a-collection-of-handy-css-snippets/ */
+
+.ir BR
+{
+	display: none;
+}
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden
+{
+	display: none !important;
+	visibility: hidden;
+}
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden
+{
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus
+{
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	width: auto;
+}
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible
+{
+	visibility: hidden;
+}
+
+
+/*
+* Clearfix: contain floats
+*
+* For modern browsers
+* 1. The space content is one way to avoid an Opera bug when the
+* `contenteditable` attribute is included anywhere else in the document.
+* Otherwise it causes space to appear at the top and bottom of elements
+* that receive the `clearfix` class.
+* 2. The use of `table` rather than `block` is only necessary if using
+* `:before` to contain the top-margins of child elements.
+*/
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+* For IE 6/7 only
+* Include this rule to trigger hasLayout and contain floats.
+*/
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+
+/* ==========================================================================
+Print styles.
+Inlined to avoid required HTTP connection: h5bp.com/r
+========================================================================== */
+
+@media print
+{
+	*
+	{
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+ 
+        /* Images, vectors and such */
+        filter: Gray();                          /* IE4-8: deprecated */
+        filter: url('desaturate.svg#grayscale'); /* SVG version for IE10, Firefox, Safari 5 and Opera */
+        -webkit-filter: grayscale(100%);         /* Chrome + Safari 6 */
+        -moz-filter: grayscale(100%);            /* Future proof */
+        -ms-filter: grayscale(100%);             /* Future proof */
+        -o-filter: grayscale(100%);              /* Future proof */
+        filter: grayscale(100%);                 /* Future proof or polyfilled */
+    }
+
+    A, A:visited
+    {
+        text-decoration: underline;
+    }
+
+    A[href]:after
+    {
+        content: " (" attr(href) ")";
+    }
+
+    ABBR[title]:after
+    {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+* Don't show links for images, or javascript/internal links
+*/
+
+    .ir A:after,
+    A[href^="javascript:"]:after,
+    A[href^="#"]:after    
+	 {
+        content: "";
+    }
+
+    PRE, BLOCKQUOTE
+    {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    THEAD
+    {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+  	 TR, IMG
+    {
+        page-break-inside: avoid;
+    }
+
+    IMG
+    {
+        max-width: 100% !important;
+    }
+
+    @page
+    {
+        margin: 0.5cm;
+    }
+
+    P, H2, H3
+    {
+        orphans: 3;
+        widows: 3;
+    }
+
+    H2, H3
+    {
+        page-break-after: avoid;
+    }
+}
