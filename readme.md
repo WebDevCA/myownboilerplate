@@ -1,3 +1,17 @@
+April 15, 2013
+
+This is my own version of boilerplate which incorporates modifications that are likely to help any web project when it starts and even throughout the development process. As with the root boilerplate project it is VERY delete key-friendly and no part of it needs to be retained that isn't necessary for a particular project. Some portions of it can be considered as scaffolding, bits of information that are helpful to know at the beginning of the project but that can then be removed once their helpfulness has been brought to bear on the project.
+
+Christian Ziebarth
+
+
+****************************************
+
+
+Everything below is the original HTML5 Boilerplate readme.md contents:
+
+
+
 # [HTML5 Boilerplate](http://html5boilerplate.com)
 
 HTML5 Boilerplate is a professional front-end template that helps you build fast, robust, adaptable, and future-proof websites. Spend more time developing and less time reinventing the wheel.
