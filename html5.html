@@ -1,0 +1,354 @@
+<!doctype html>
+
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
+<!--[if !IE]> <html class="no-js" lang="en"> <![endif]--><!-- The "lang" attribute needs to be present for hyphenation to work, although it doesn't have to be on the HTML element. http://www.quirksmode.org/blog/archives/2012/11/hyphenation_wor.html -->
+
+    <head>
+
+        <meta charset="utf-8" />
+
+        <title>HTML5 Presentation for OC Dev Meetup Group</title>
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+        <meta name="msapplication-TileColor" content="#123456" />
+        <meta name="msapplication-TileImage" content="your_logo.png" /><!-- from: http://www.modern.ie/report; Check for a multitude of IE issues here: http://www.modern.ie/ -->
+
+        <link rel="stylesheet" href="css/style.css" data-hitch-interpret />
+
+        <style>
+
+            BODY
+            {
+                background-color: #111111;
+                background-image: url(http://www.autorepairinhuntingtonbeach.com/img/greysq.gif);
+                color: #5ABDD3;
+                font-family: Georgia, serif;
+            }
+
+            MAIN
+            {
+                font-size: 1.8rem;
+                width: 800px;
+                height: 600px;
+                margin: 0px auto;
+            }
+
+            SECTION
+            {
+                background-color: #000000;
+                border: 1px solid yellow;
+                width: 800px;
+                height: 600px;
+                overflow: auto;
+                padding: 1em;
+            }
+
+            FOOTER
+            {
+                position: absolute;
+                bottom: 1em;
+                left: 50%;
+                text-align: center;
+                margin: 0px auto;
+            }
+
+            #overview
+            {
+                display: none;
+            }
+
+            H1
+            {
+                color: #6CAD29;
+                text-align: center;
+            }
+
+            H2
+            {
+                color: #E7276B;
+            }
+
+            CODE
+            {
+                color: #9900CC;
+            }
+
+        </style>
+
+        <!--script src="js/libs/modernizr-2.6.2.min.js"></script-->
+
+    </head>
+
+    <body>
+
+        <header role="banner">
+
+            <h1>HTML5 Meetup Presentation</h1>
+
+        </header>
+
+        <!--nav role="navigation"></nav-->
+
+        <main id="impress" role="main">
+
+            <section class="step" data-x="-1000" data-y="-1000">
+                
+                <h2>This presentation is brought to you by:</h2>
+
+                <figure>
+                    <img src="http://img2.meetupstatic.com/906521611995523788/img/header/logo.png" alt="Meetup" />
+                    <!---figcaption>Meetup</figcaption-->
+                </figure>
+
+                <figure>
+                    <img src="http://photos4.meetupstatic.com/photos/sponsor/a/a/2/a/iab120x90_1423562.jpeg" alt="Adobe Max" />
+                    <!--figcaption>Adobe Max</figcaption-->
+                </figure>
+
+                <figure>
+                    <img src="http://photos1.meetupstatic.com/photos/sponsor/a/e/0/8/iab120x90_1424552.jpeg" alt="Adobe User Group" />
+                    <!--figcaption>Adobe User Group</figcaption-->
+                </figure>
+
+                <figure>
+                    <img src="http://photos4.meetupstatic.com/photos/sponsor/b/3/a/8/iab120x90_1425992.jpeg" alt="O'Reilly Media" />
+                    <!--figcaption>O'Reilly Media</figcaption-->
+                </figure>
+
+                <figure>
+                    <img src="http://dgdsbygo8mp3h.cloudfront.net/sites/default/files/imagecache/productview_larger/6487OT.jpg" alt="impress.js" />
+                    <!--figcaption>impress.js</figcaption-->
+                </figure>
+
+            </section>
+
+            <section class="step" data-x="-2000" data-y="-2000">
+                
+                <h2>History</h2>
+
+                <iframe width="420" height="315" src="http://www.youtube.com/embed/Y0pPfyYtiBc" frameborder="0" allowfullscreen></iframe>
+
+                <ul>
+                    <li><a href="http://info.cern.ch/hypertext/WWW/TheProject.html">The First Web Page</a></li>
+                </ul>
+
+            </section>
+
+            <section class="step" data-x="-3000" data-y="-3000" data-z="-4800" data-scale=".5">
+                
+                <h2>What is HTML5?</h2>
+
+                <p>HTML5 is:</p>
+
+                <ul>
+                    <li>The new <em>recommended</em> version of HTML (not final yet)</li>
+                    <li>HTML(5) + CSS(3) + JavaScript/jQuery/AJAX + new API's</li>
+                    <li>All of the above + best practices (e.g., responsive design, separation of content and style, etc.)</li>
+                    <li>Overall intent is to reduce load on back-end, PhotoShop, Flash, Silverlight, etc.</li>
+                </ul>
+
+                <p>HTML5 is set to be finalized in 2014. It was going to be 2021. Yes, an HTML5.1 is being worked on. Some suggest we get rid of version numbers. HTML versions work different than software versions because they are "released" to the public before they are actually made. The <abbr title="World Wide Web Consortium">W3C</abbr> and the <abbr title="Web Hypertext Application Technology Working Group">WHATWG</abbr> make recommendations for a new version and then browser makers do what they can to implement them, then developers hopefully use them. Meanwhile, the <abbr title="World Wide Web Consortium">W3C</abbr> and the <abbr title="Web Hypertext Application Technology Working Group">WHATWG</abbr> continue to discuss if their recommendations are any good...</p>
+
+                <p>HTML5 is more forgiving of "tag soup" than XHTML was. HTML5 goes back to allowing elements to be coded in upper or lowercase, doesn't require attributes to have values and does not require attribute values to be in quotes. The doctype is much simpler, and doesn't even require the inclusion of the <code>HEAD</code> and <code>BODY</code> elements.</p>
+
+            </section>
+
+            <section class="step" data-x="-4000" data-y="-4000" data-z="-4800">
+                
+                <h2>New HTML5 Elements</h2>
+
+                <ul>
+                    <li><code>HEADER</code></li>
+                    <li><code>FOOTER</code></li>
+                    <li><code>NAV</code></li>
+                    <li><code>ASIDE</code></li>
+                    <li><code>ARTICLE</code></li>
+                    <li><code>SECTION</code></li>
+                    <li><code>TIME</code> (was taken out then put back in)</li>
+                    <li><code>MARK</code></li>
+                    <li><code>FIGURE</code>(and <code>FIGCAPTION</code>)</li>
+                    <li><code>METER</code></li>
+                    <li><code>MAIN</code></li>
+                    <li><code>VIDEO</code></li>
+                    <li><code>AUDIO</code></li>
+                    <li><code>CANVAS</code></li>
+                    <li><code>TEMPLATE</code></li>
+                </ul>
+
+                <p>NOTE: Don't overuse. Not every image is a figure. Not every link is to be wrapped in <code>NAV</code> tags.</p>
+
+                <ul>
+                    <li><code>HGROUP</code> probably going away</li>
+                </ul>
+                
+                <h2>Deprecated Elements</h2>
+
+                <ul>
+                    <li><code>ACRONYM</code></li>
+                    <li><code>APPLET</code></li>
+                    <li><code>BASEFONT</code></li>
+                    <li><code>BIG</code></li>
+                    <li><code>CENTER</code></li>
+                    <li><code>DIR</code></li>
+                    <li><code>FONT</code></li>
+                    <li><code>FRAME</code></li>
+                    <li><code>FRAMESET</code></li>
+                    <li><code>ISINDEX</code></li>
+                    <li><code>NOFRAMES</code></li>
+                    <li><code>STRIKE</code></li>
+                    <li><code>TT</code></li>
+                </ul>
+
+            </section>
+
+            <section class="step" data-x="-5000" data-y="-5000" data-scale=".5" data-rotate="180">
+                
+                <h2>New HTML5 Form Input Types</h2>
+
+                <ul>
+                    <li><code>number</code></li>
+                    <li><code>email</code></li>
+                    <li><code>tel</code></li>
+                    <li><code>url</code></li>
+                    <li><code>search</code></li>
+                    <li><code>date</code></li>
+                    <li><code>datetime</code></li>
+                    <li><code>month</code></li>
+                    <li><code>number+pattern</code></li>
+                    <li><code>range</code></li>
+                    <li><code>color</code></li>
+                    <li><code>password</code></li>
+                    <li><code>week</code></li>
+                </ul>
+
+                <p>New form element input types unrecognized by older browser default to regular text input fields.</p>
+                
+                <h2>New HTML5 Form Element Attribute Types</h2>
+
+                <ul>
+                    <li><code>placeholder</code></li>
+                    <li><code>required</code></li>
+                </ul>
+
+            </section>
+
+            <section class="step" data-x="-6000" data-y="-6000" data-scale=".5" data-rotate="270">
+                
+                <h2>HTML5 API's</h2>
+
+                <blockquote>
+                    
+                    <p>From <a href="http://en.wikipedia.org/wiki/HTML5#New_APIs">Wikipedia</a>: In addition to specifying markup, HTML5 specifies scripting application programming interfaces (APIs) that can be used with JavaScript.[35] Existing document object model (DOM) interfaces are extended and de facto features documented.</p>
+
+                </blockquote>
+
+                <ul>
+                    <li>Microdata (make information more machine readable)</li>
+                    <li>Canvas</li>
+                    <li>Web Sockets</li>
+                    <li>Web Workers</li>
+                    <li>History (keep track of browsing history better, especially when AJAX is involved)</li>
+                    <li>User Interaction (contenteditable)</li>
+                    <li>Offline Web Applications/Application Cache</li>
+                    <li>Drag and Drop</li>
+                    <li>Media/Text Track</li>
+                    <li>Vibrate</li>
+                    <li>autofocus Attribute</li>
+                    <li>window.postMessage (send messages between windows and IFRAME elements</li>
+                    <li>Element.dataset (allows developers to get and set data- attribute values)</li>
+                    <li>ContextMenu</li>
+                    <li>Element.classList</li>
+                    <li>Link Prefetching (load assets befor user goes to them)</li>
+                    <li>Battery</li>
+                    <li>getUserMedia</li>                    
+                    <li>Fullscreen</li>
+                    <li>Page Visibility</li>
+                    <li>Geolocation</li>
+                </ul>
+
+                <p>and more&hellip;</p>
+
+                <p>Polyfills exist to make older browsers behave like newer browsers. Use judiciously.</p>
+
+                <!--
+                    http://www.netmagazine.com/features/developer-s-guide-html5-apis
+                    http://davidwalsh.name/html5-apis
+                    http://davidwalsh.name/more-html5-apis
+                    http://jspro.com/apis/the-buzz-about-the-vibration-api/#.UOTOHGeDl8E
+                -->
+
+                <iframe width="560" height="315" src="http://www.youtube.com/embed/V_BCIWAY1yc" frameborder="0" allowfullscreen></iframe>
+
+            </section>
+
+            <section class="step" data-x="-5000" data-y="-5000" data-scale=".5">
+                
+                <h2>Modernizr</h2>
+                
+                <p>Modernizr checks for user agent (browser) capabilities then adds appropriate classes to the HTML element accordingly. The developer can then tailor the user experience based on the presence or absence of certain features.</p>
+
+            </section>
+
+            <section class="step" data-x="-7000" data-y="-7000" data-scale=".5">
+                
+                <h2>Links</h2>
+
+                <ul>
+                    <li><a href="http://joshduck.com/periodic-table.html">Periodic Table of the Elements</a></li>
+                    <li><a href="http://www.caniuse.com">Can I Use?</a></li>
+                    <li><a href="http://atari.com/arcade">Atari Arcade</a></li>
+                    <li><a href="http://www.apple.com/html5/">Apple HTML5 Showcase</a></li>
+                    <li><a href="http://hakim.se/experiments">Hakim's HTML5 Experiments</a></li>
+                    <li><a href="http://html5bookmarks.com/">HTML5 Bookmarks</a></li>
+                    <li><a href="http://www.html5rocks.com/en/tutorials/webcomponents/template/">About the <code>TEMPLATE</code> Tag</a></li>
+                    <li><a href="http://animateyourhtml5.appspot.com/pres/index.html?lang=en#1">Animate Your HTML5</a></li>
+                    <li><a href="http://shreerangpatwardhan.blogspot.in/2013/04/default-keyboards-for-html5-input-types.html">Default keyboards for HTML5 input types</a></li>
+                    <li><a href="http://www.sitepoint.com/browser-trends-may-2013/">Browser Trends May 2013</a></li>
+                    <li><a href="http://www.w3.org/html/logo/">The Almighty HTML5 Logo</a></li>
+                    <li><a href="http://www.20thingsilearned.com">20 Things I Learned</a></li>
+                </ul>
+
+            </section>
+
+            <section id="overview" class="step" data-x="1500" data-y="1500" data-scale="4"></section>
+
+        </main>
+
+        <footer role="contentinfo">
+
+            <p>No copyright!</p>
+
+        </footer>
+
+        <!-- JavaScript at the bottom for fast page loading -->
+
+        <!-- Load Dean Edwards' IE-9 script for IE browsers below version 9. You can also use the script from http://selectivizr.com/ -->
+        <!-- Then load media query support for IE browsers below version 9. May not be needed if Modernizr is in place. -->
+        <!--[if lt IE 9]>
+        <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+
+        <!--script type="text/javascript" src="http://www.hitchjs.com/dist/hitch-0.6.3.min.js"></script>
+        <script>window.Hitch || document.write('<script src="js/libs/hitch.js"><\/script>')</script--><!--Uncomment if necessary to use hitch.js; see http://www.hitchjs.com/ -->
+
+        <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script>window.jQuery || document.write('<script src="js/libs/jquery.min.js"><\/script>')</script>
+        <!--script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script--><!-- May not be needed if pre-jQuery 1.9 deprecated features are not used. -->
+
+        <script src="http://netdna.impressjscdn.com/impressjs/0.5.3/js/impress.js"></script>
+
+        <script>impress().init();</script>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/script.js"></script>
+
+    </body>
+
+</html>
