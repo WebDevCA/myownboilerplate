@@ -2,7 +2,7 @@
 
 File Name: initialize.css
 Description: 
-Version: 0.81 March 5, 2013
+Version: 0.89 May 11, 2013
 Author: Christian Ziebarth
 Author Twitter: http://www.twitter.com/cmziebarth
 
@@ -904,6 +904,21 @@ INPUT:invalid, TEXTAREA:invalid
 {
 	background-color: #f0dddd;
 }
+
+/* Form Validation Messages
+
+	WebKit is the only rendering engine to support styling the validation bubbles created from the constraint validation API. The following pseudo-elements are provided:
+
+    ::-webkit-validation-bubble
+    ::-webkit-validation-bubble-arrow
+    ::-webkit-validation-bubble-arrow-clipper
+    ::-webkit-validation-bubble-heading
+    ::-webkit-validation-bubble-message
+    ::-webkit-validation-bubble-text-block
+
+    see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#form_validation_messages
+
+ */
 
 
 /* =============================================================================
