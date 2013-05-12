@@ -603,7 +603,7 @@ BUTTON, INPUT, SELECT, TEXTAREA
 BUTTON, INPUT, SELECT, TEXTAREA, OPTGROUP, OPTION
 {
 	font: inherit;
-	text-transform:inherit;
+	text-transform: inherit;
 	line-height: inherit !important;
 }
 
@@ -636,28 +636,133 @@ BUTTON, INPUT[type="button"], INPUT[type="reset"], INPUT[type="submit"], INPUT[t
 	-webkit-appearance: button;
 }
 
-.ie6 INPUT
+.ie6 INPUT /* Remove if not supporting IE6. */
 {
 	vertical-align: text-bottom;
 }
 
-::-webkit-input-placeholder
+INPUT[type="password"]
+{
+	/* Define styles */
+}
+
+::-ms-value
+{
+	/* Define styles; "As of IE10 Trident provides the pseudo-element ::-ms-value to style the value portion of text inputs (input[type=text], input[type=password], etc) and <select>s." see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_text */
+}
+
+::-ms-clear
+{
+	display: none; /* "In IE10 when a text input has focus and is not empty, a small X control appears in the right hand side of the input. When clicked, the control will clear the contents of the text input. The X is styleable with the ::-ms-clear pseudo-element. Therefore you can hide it" see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_text */
+}
+
+
+::-ms-reveal
+{
+	/* "Trident provides a control on password inputs that can be pressed to display the password in plain text." see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_password */
+}
+
+::-webkit-input-placeholder /* This prefixed version might not be needed anymore? */
 {
 	font-size: .875em; 
 	line-height: 1.4;
 }
 
-INPUT:-moz-placeholder
+:-moz-placeholder /* This prefixed version might not be needed anymore? */
 { 
 	font-size: .875em; 
 	line-height: 1.4;
 }
 
-INPUT:placeholder
+:-ms-input-placeholder /* "Trident offers the ability to style the placeholder text with a pseudo-class rather than a pseudo-element." see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#placeholder_attribute */
 { 
 	font-size: .875em; 
 	line-height: 1.4;
 }
+
+::-moz-placeholder /* "Note: Gecko switched from the pseudo-class :-moz-placeholder to the pseudo-element ::-moz-placeholder in Firefox 19." see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#placeholder_attribute */
+{ 
+	font-size: .875em; 
+	line-height: 1.4;
+}
+
+:placeholder
+{ 
+	font-size: .875em; 
+	line-height: 1.4;
+}
+
+INPUT[type="range"]
+{
+	/* Define styles */
+}
+
+::-moz-range-track
+{
+	/* Define styles; see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_range */
+}
+
+::-moz-range-thumb
+{
+	/* Define styles; see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_range */
+}
+
+/*
+
+	Trident provides an impressive number of pseudo-elements to customize its range selector.
+
+    ::-ms-fill-lower: The track portion underneath / before the handle.
+    ::ms-fill-upper: The track portion above / after the handle.
+    ::-ms-ticks-before: An area above / before the range track with tick marks.
+    ::-ms-ticks-after: An area below / after the range track with tick marks.
+    ::-ms-thumb: The handle.
+    ::-ms-track: The range track itself.
+    ::ms-tooltip: The tooltip that appears when the user is selecting a value with the range selector. Note that this element cannot be styled, only hidden using display: none.
+
+    WebKit provides the ::-webkit-slider-runnable-track pseudo-element for the track and ::-webkit-slider-thumb for the range handle itself. While you cannot do much with these elements, you can add some colors and padding.
+	
+	see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_range
+*/
+
+::-webkit-keygen-select
+{
+	/* Define styles; "WebKit provides the ::-webkit-keygen-select that can be used to customize the dropdown that a KEYGEN element uses." see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#keygen_element; */
+}
+
+/* Guides for styling the METER element in WebKit:
+
+::-webkit-meter-bar {
+    height: 50px;
+    background: white;
+    border: 2px solid black;
+}
+::-webkit-meter-optimum-value { background: green; }
+::-webkit-meter-suboptimum-value { background: orange; }
+::-webkit-meter-even-less-good-value { background: blue; }
+
+see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#meter_element
+
+*/
+
+/* Guides for styling the PROGRESS element in WebKit:
+
+PROGRESS { -webkit-appearance: none; }
+::-webkit-progress-inner-element { }
+::-webkit-progress-bar { border: 2px solid black; }
+::-webkit-progress-value { background: red; }
+
+and in Mozilla:
+
+::-moz-progress-bar { background: red; }
+
+and in Trident (IE):
+
+::-ms-fill { background: red; }
+
+see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#progress_element
+
+*/
+
 
 /*
  * Re-set default cursor for disabled elements
@@ -691,6 +796,51 @@ INPUT[type="checkbox"], INPUT[type="radio"]
 	*height: 13px;
 }
 
+::-ms-check
+{
+    /* For styling radio buttons and checkboxes in Trident; appears to style both and not just one or the other; see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_checkbox_radio; */
+}
+
+::-webkit-color-swatch-wrapper
+{
+	/* For styling color input elements in Webkit; see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_color; */
+}
+
+::-webkit-color-swatch
+{
+	/* For styling color input elements in Webkit; see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_date; */
+}
+
+::-webkit-datetime-edit,
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-year-field,
+::-webkit-inner-spin-button,
+::-webkit-calendar-picker-indicator
+{
+	/* For styling date input elements in Webkit; see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_color; */
+}
+
+::-ms-browse
+{
+    /* For styling input[type=file] in Trident; see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_file; */
+}
+
+::-webkit-file-upload-button
+{
+    /* For styling input[type=file] in webkit; see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_file; */
+}
+
+::-webkit-textfield-decoration-container,
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button
+{
+    /* For styling input[type=number] in webkit; see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_number; */
+}
+
+
 INPUT[type="search"]
 {
 	-webkit-appearance: textfield;
@@ -699,17 +849,14 @@ INPUT[type="search"]
 	box-sizing: content-box;
 }
 
-INPUT[type="search"]::-webkit-search-decoration, INPUT[type="search"]::-webkit-search-cancel-button
+INPUT[type="search"]::-webkit-search-decoration, INPUT[type="search"]::-webkit-search-cancel-button, INPUT[type="search"]::-webkit-search-results-button
 {
-	-webkit-appearance: none;
+	-webkit-appearance: none; /* see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_search */
 }
 
-/*
- * Remove inner padding and border in FF3/4: h5bp.com/l
- */
-
-BUTTON::-moz-focus-inner, INPUT::-moz-focus-inner
+BUTTON::-moz-focus-inner, INPUT::-moz-focus-inner /* see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#button_element */
 {
+	/* Remove inner padding and border in FF3/4: h5bp.com/l */
 	border: 0;
 	padding: 0;
 }
@@ -724,12 +871,28 @@ SELECT
 	background-color: transparent;
 }
 
+::-ms-expand
+{
+    /* Define styles; "As of IE10 Trident gives you a hook to style the arrow within SELECT dropdowns." see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#select_element */
+}
+
+
 TEXTAREA
 {
 	overflow: auto;
 	vertical-align: top;
 	resize: vertical;
 }
+
+/* WebKit provides the pseudo-element ::-webkit-resizer for the resize control it automatically adds to the bottom right of textarea elements.
+It can be hidden by applying display: none or -webkit-appearance: none;
+
+::-webkit-resizer
+{
+    display: none;
+}
+
+see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#textarea_element */
 
 /* Colors for form validity */
 INPUT:valid, TEXTAREA:valid
