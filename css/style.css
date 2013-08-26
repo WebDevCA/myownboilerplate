@@ -141,7 +141,7 @@ HTML
 }
 
 /* prevent BG image flicker upon hover */
-.lt-ie7 HTML
+.lt-ie7 HTML /* Should this selector actually be "HTML.lt-ie7"? */
 {
 	filter: expression(document.execCommand("BackgroundImageCache", false, true));
 }
@@ -176,7 +176,7 @@ BODY
 IMG, OBJECT, EMBED
 {
 	max-width: 100%;
-	height: auto; /* Keep? */
+	height: auto;
 }
 
 /*
@@ -207,6 +207,16 @@ IMG, OBJECT, EMBED
 	text-shadow: none;
 }
 
+IMG::-moz-selection
+{
+	background: transparent; /* From: https://github.com/jonikorpi/Frameless/blob/master/frameless.less */
+}
+
+IMG::selection
+{
+	background: transparent; /* From: https://github.com/jonikorpi/Frameless/blob/master/frameless.less */
+}
+
 METER
 {
 	-moz-appearance: progressbar; /* From: https://github.com/ao5357/hawiducss/blob/gh-pages/styles.css */
@@ -218,17 +228,23 @@ METER
 /* =============================================================================
    Links
    ========================================================================== */
+
+NAV
+{
+	/* See http://www.barrelny.com/blog/text-align-justify-and-rwd/ for info on aligning nav buttons effectively. */
+}
    
 /* Remember that link pseudo-classes can also be combined, such as A:visited:hover (to define the state of an anchor element that has already been visited and is now being hovered over). */
 
 A
 {
+	background: transparent;
 	color: #00e;
+	font-size: 100%;
+  	line-height: inherit;
 	margin: 0;
 	padding: 0;
-	font-size: 100%;
 	vertical-align: baseline;
-	background: transparent;
 }
 
 /*	j.mp/webkit-tap-highlight-color */
@@ -247,7 +263,7 @@ A:hover
 	color: #06e;
 }
 
-A:focus, A:focus
+A:focus
 {
 	outline: thin dotted;
 }
@@ -321,16 +337,51 @@ H6
 
 HR
 {
+	/* background-color: #808080; Suggested by https://github.com/ao5357/hawiducss/blob/gh-pages/styles.css */
 	-moz-box-sizing: content-box;
-    box-sizing: content-box;
-	.lt-ie8 display: block; 
-	height: 1px;
+	box-sizing: content-box;
+	.lt-ie8 display: block;
 	border: 0;
-    border-style: inset;
+	border-style: inset;
+	/* border: solid #dddddd; Suggested by Foundation. */
+	/* border-width: 1px 0 0; Suggested by Foundation. */
+	/* border-width: 0; Suggested by https://github.com/ao5357/hawiducss/blob/gh-pages/styles.css */
 	border-top: 1px solid #ccc;
-	margin: 1em 0;
+	clear: both;
+	/* color: #808080; Suggested by https://github.com/ao5357/hawiducss/blob/gh-pages/styles.css */
+	height: 1px; /* Best value here? Foundation suggests simply "0"; https://github.com/ao5357/hawiducss/blob/gh-pages/styles.css suggests .2em; */
+	line-height: 0;
+  	margin: 1.25em 0 1.1875em;
+	margin:1.8571em 2em;
 	padding: 0;
+	/* text-align: center; Uncomment this rule if the :after aspect will be used. */
+	/* Also see http://css-tricks.com/snippets/css/cross-browser-hr-styling/ */
 }
+
+/* HR; Suggested by: http://css-tricks.com/snippets/css/cross-browser-hr-styling/
+{
+	border : 0;
+	height : 15px;
+	background : url(hr.gif) 50% 0 no-repeat;
+	background : url(hr.gif) 50% 0 repeat-x; Suggested by a commenter on the same page
+	margin : 1em 0;
+} */
+
+/* .lt-ie8 HR These HR styles for IE browsers below version 8 were suggested by: http://css-tricks.com/snippets/css/cross-browser-hr-styling/
+{
+	display: list-item;
+	list-style: url(hr.gif) inside; This likely needs a GIF provided.
+	filter: alpha(opacity=0);
+	width: 0;
+} */
+
+HR:after
+{
+	/* content: "\a7\a7"; This adds a little curlicue in the center.
+	font-size: 1.25em; This comes from https://github.com/ao5357/hawiducss/blob/gh-pages/styles.css and may be helpful. */
+}
+
+/* Also see http://css-tricks.com/snippets/css/cross-browser-hr-styling/ and http://css-tricks.com/simple-styles-for-horizontal-rules/ */
 
 INS
 {
@@ -357,6 +408,8 @@ P
 	-moz-hyphens: auto;
 	hyphens: auto; 
 	text-align: justify;
+	/* -ms-text-justify: newspaper; See http://www.css3.com/css-text-justify/ for other possible values. I believe "auto" is the default value. */
+	/* text-justify: newspaper; http://jsfiddle.net/8NSHy/1/ doesn't show much difference in the values. */
 }
 
 P, OL, UL, DL, ADDRESS
@@ -404,8 +457,6 @@ blockquote > :last-child{margin-bottom:0;}
 q{quotes:"\201C""\201D""\2018""\2019";}
 hr{background-color:#808080;border-width:0;color:#808080;height:.2em;line-height:0;margin:1.8571em 2em;page-break-after:always;text-align:center;}
 hr:after{content:"\a7\a7";font-size:1.25em;} This stuff comes from https://github.com/ao5357/hawiducss/blob/gh-pages/styles.css and may be helpful. */
-
-/* Also see http://css-tricks.com/snippets/css/cross-browser-hr-styling/ */
 
 SMALL
 {
@@ -581,8 +632,10 @@ LABEL
 LEGEND
 {
 	border: 0;
+	color: #000; /* Change color value here accordingly. */
 	*margin-left: -7px;
 	padding: 0;
+	padding-bottom: .5em; /* (Padding is used so Internet Explorer does not cut-off descenders in letters like p, g, etc.; see: http://tjkdesign.com/ez-css/css/base.css) */
 	white-space: normal;
 }
 
@@ -641,7 +694,9 @@ BUTTON, INPUT[type="button"], INPUT[type="reset"], INPUT[type="submit"], INPUT[t
 	vertical-align: text-bottom;
 }
 
-INPUT[type="password"]
+INPUT[type="text"], INPUT[type="password"], INPUT[type="date"], INPUT[type="datetime"], INPUT[type="datetime-local"],
+INPUT[type="month"], INPUT[type="week"], INPUT[type="email"], INPUT[type="number"], INPUT[type="search"],
+INPUT[type="tel"], INPUT[type="time"], INPUT[type="url"]
 {
 	/* Define styles */
 }
@@ -768,7 +823,7 @@ see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-contro
  * Re-set default cursor for disabled elements
  */
 
-BUTTON[disabled], INPUT[disabled]
+BUTTON[disabled], INPUT[disabled] /* Should these change to BUTTON:disabled, INPUT:disabled? */
 {
 	cursor: default;
 }
@@ -790,6 +845,10 @@ INPUT[type="checkbox"]
 
 INPUT[type="checkbox"], INPUT[type="radio"]
 {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box; /* Are these prefixes needed any more? */
 	box-sizing: border-box;
 	padding: 0;
 	*width: 13px;
@@ -929,6 +988,7 @@ TABLE
 {
 	border-collapse: collapse;
 	border-spacing: 0;
+    empty-cells: show;
 	font-size: inherit;
 	font: 100%;
 	margin-bottom: 1.4em;
@@ -939,16 +999,15 @@ CAPTION
 	background-color: transparent;
 }
 
-LEGEND
-{
-	color: #000; /* Change color value here accordingly. */
-	padding-bottom: .5em; /* (Padding is used so Internet Explorer does not cut-off descenders in letters like p, g, etc.; see: http://tjkdesign.com/ez-css/css/base.css) */
-}
-
 CAPTION, TD, TH
 {
 	padding: 0px;
 	/* padding: .25em 10px .25em 5px; 320 and Up Preference */
+}
+
+TD:first-child, TH:first-child
+{
+    border-left-width: 0; /* From: http://yui.yahooapis.com/pure/0.2.1/tables-min.css; Remove or leave in as necessary. It appears to help when borders are generally declared on TD's and TH's. */
 }
 
 TD, TD IMG
@@ -999,6 +1058,9 @@ TBODY TH
 /* ==|== media queries ======================================================
 
 	Remove or comment out media queries you are not using.
+
+	See http://brightbyte.co.uk/responsive-development-the-basics/ and http://cssmatter.com/blog/css-media-queries/ for suggested arrangements
+	of media queries. This link also advises removing CSS3 animations for mobile devices.
 
    ========================================================================== */
    
@@ -1152,10 +1214,10 @@ html>/**/body .selector, x:-moz-any-link, x:default
 }/*/mediaquery*/
 
 
-/* Targets Opera browsers, possibly 9.5 and above: http://preview.tinyurl.com/874x89m*/
+/* Targets Opera browsers, possibly 9.5 and above, and maybe up to just before they started using the blink rendering engine?: http://preview.tinyurl.com/874x89m
 *:-o-prefocus
 {
-}
+} */
 
 
 /* iPhone 4, Opera Mobile 11 and other high pixel ratio devices ----------- */
@@ -1277,6 +1339,29 @@ Retina rules!
 }
 
 
+/*
+An easy way to zoom your entire layout in or out (as long as it's set in ems).
+Just change the media queries to activate them.
+Assuming your base font-size is 16:
+- the first one zooms out by a factor of (16-2)/16 = 0.875
+- the second one zooms in by a factor of (16+2)/16 = 1.125
+From: https://github.com/jonikorpi/Frameless/blob/master/frameless.less
+	(check this style sheet again on GitHub before using these media queries as they are reliant on some LESS variables from there)
+
+@media screen and (max-width: 1px) {
+body {
+font-size: (@font-size - 2)/16*1em;
+}
+}
+
+@media screen and (max-width: 1px) {
+body {
+font-size: (@font-size + 2)/16*1em;
+}
+}
+
+*/
+
 
 /* ==========================================================================
 Print styles.
@@ -1317,9 +1402,7 @@ Inlined to avoid required HTTP connection: h5bp.com/r
         content: " (" attr(title) ")";
     }
 
-    /*
-* Don't show links for images, or javascript/internal links
-*/
+    /* Don't show links for images, or javascript/internal links: */
 
     .ir A:after,
     A[href^="javascript:"]:after,
@@ -1327,6 +1410,11 @@ Inlined to avoid required HTTP connection: h5bp.com/r
 	 {
         content: "";
     }
+
+	HR
+	{
+		/* page-break-after: always; Is this really the best value? Suggested by Brad Czerniak at: http://css-tricks.com/snippets/css/cross-browser-hr-styling/ */
+	}
 
     PRE, BLOCKQUOTE
     {
