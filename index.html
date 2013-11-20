@@ -33,7 +33,7 @@
         <!-- Mobile viewport optimized: h5bp.com/viewport -->
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory; mathiasbynens.be/notes/touch-icons -->
 
         <meta name="msapplication-TileColor" content="#123456" />
         <meta name="msapplication-TileImage" content="your_logo.png" /><!-- from: http://www.modern.ie/report; Check for a multitude of IE issues here: http://www.modern.ie/ -->
@@ -52,15 +52,15 @@
         Always check for the latest version... then it is recommended to get custom build when ready to go to production.
         Also consider using the yepnope.js script (can be included in Modernizr custom build) to load polyfills if needed for older browsers; see http://www.sitepoint.com/regressive-enhancement-with-modernizr-and-yepnope/
         -->
-        <script src="js/libs/modernizr-2.6.2.min.js"></script>
+        <script src="js/libs/modernizr-2.6.2.min.js"></script><!-- Also see http://blog.teamtreehouse.com/thinking-ahead-native-css-feature-detection -->
 
     </head>
 
     <body>
 
-        <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6. chromium.org/developers/how-tos/chrome-frame-getting-started
-        http://blog.chromium.org/2013/06/retiring-chrome-frame.html Chrome Frame retiring in January 2014 -->
-        <!--[if lt IE 7]><p class="chromeframe">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+        <!--[if lt IE 8]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
         <header role="banner"><!-- See http://www.flickr.com/photos/odmag/8467120722/ for info on ARIA roles. -->
 

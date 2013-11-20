@@ -2,7 +2,7 @@
 
 File Name: initialize.css
 Description: 
-Version: 0.89 May 11, 2013
+Version: 0.92 October 26, 2013
 Author: Christian Ziebarth
 Author Twitter: http://www.twitter.com/cmziebarth
 
@@ -102,7 +102,7 @@ AUDIO, CANVAS, VIDEO
 	*zoom: 1;
 }
 
-AUDIO:not([controls]), [hidden]
+AUDIO:not([controls]), [hidden], TEMPLATE
 {
 	display: none;
 }
@@ -215,11 +215,6 @@ IMG::-moz-selection
 IMG::selection
 {
 	background: transparent; /* From: https://github.com/jonikorpi/Frameless/blob/master/frameless.less */
-}
-
-METER
-{
-	-moz-appearance: progressbar; /* From: https://github.com/ao5357/hawiducss/blob/gh-pages/styles.css */
 }
 
 /* Look into :target pseudo-class https://developer.mozilla.org/en-US/docs/CSS/:target */
@@ -442,6 +437,11 @@ BLOCKQUOTE, Q
 	quotes: none;
 }
 
+Q
+{
+    quotes: "\201C" "\201D" "\2018" "\2019"; /* This is the newest suggestion by HTML5 Boilerplate */
+}
+
 BLOCKQUOTE:before, 
 BLOCKQUOTE:after,
 Q:before, Q:after
@@ -460,7 +460,7 @@ hr:after{content:"\a7\a7";font-size:1.25em;} This stuff comes from https://githu
 
 SMALL
 {
-	font-size: 85%;
+	font-size: 80%;
 }
 
 /* Position subscript and superscript content without affecting line-height: h5bp.com/k and gist.github.com/413930 */
@@ -568,6 +568,11 @@ IMG
 	-ms-interpolation-mode: bicubic;
 	vertical-align: middle; /* Or is bottom a better value? See: http://tjkdesign.com/ez-css/css/base.css */
 	width: auto\9; /* ie8 */
+}
+
+AUDIO, CANVAS, IMG, SVG, VIDEO
+{
+    vertical-align: middle;
 }
 
 
@@ -683,7 +688,7 @@ BUTTON
  * 3. Correct inner spacing displayed oddly in IE7 (doesn't effect IE6)
  */
 
-BUTTON, INPUT[type="button"], INPUT[type="reset"], INPUT[type="submit"], INPUT[type="email"]
+BUTTON, HTML INPUT[type="button"], INPUT[type="reset"], INPUT[type="submit"], INPUT[type="email"]
 {
 	cursor: pointer;
 	-webkit-appearance: button;
@@ -699,6 +704,14 @@ INPUT[type="month"], INPUT[type="week"], INPUT[type="email"], INPUT[type="number
 INPUT[type="tel"], INPUT[type="time"], INPUT[type="url"]
 {
 	/* Define styles */
+}
+
+
+TEXTAREA
+{
+	overflow: auto;
+	vertical-align: top;
+	resize: vertical;
 }
 
 ::-ms-value
@@ -784,6 +797,11 @@ INPUT[type="range"]
 	/* Define styles; "WebKit provides the ::-webkit-keygen-select that can be used to customize the dropdown that a KEYGEN element uses." see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#keygen_element; */
 }
 
+METER
+{
+	-moz-appearance: progressbar; /* From: https://github.com/ao5357/hawiducss/blob/gh-pages/styles.css */
+}
+
 /* Guides for styling the METER element in WebKit:
 
 ::-webkit-meter-bar {
@@ -823,7 +841,7 @@ see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-contro
  * Re-set default cursor for disabled elements
  */
 
-BUTTON[disabled], INPUT[disabled] /* Should these change to BUTTON:disabled, INPUT:disabled? */
+BUTTON[disabled], HTML INPUT[disabled] /* Should these change to BUTTON:disabled, INPUT:disabled? */
 {
 	cursor: default;
 }
@@ -935,14 +953,6 @@ SELECT
     /* Define styles; "As of IE10 Trident gives you a hook to style the arrow within SELECT dropdowns." see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#select_element */
 }
 
-
-TEXTAREA
-{
-	overflow: auto;
-	vertical-align: top;
-	resize: vertical;
-}
-
 /* WebKit provides the pseudo-element ::-webkit-resizer for the resize control it automatically adds to the bottom right of textarea elements.
 It can be hidden by applying display: none or -webkit-appearance: none;
 
@@ -1027,10 +1037,10 @@ TBODY TH
 
 
 /* =============================================================================
-   Chrome Frame Prompt
+   Browse Happy Prompt
    ========================================================================== */
 
-.chromeframe
+.browsehappy
 {
 	margin: 0.2em 0;
 	background: #ccc;
@@ -1053,6 +1063,27 @@ TBODY TH
 
 
 /*  End "website-specific styles." */
+
+
+
+
+/* iOS7 CSS Updates:
+
+	Following Google Chrome, now Safari on iOS doesn’t support the datetime input type anymore and it will fallback to text.
+	position: -webkit-sticky;
+    Unprefixed CSS Transitions (and the transitionend event).
+    CSS Clip Path to clip contents based on shapes, including circle, rectangles and polygons
+    Kerning and Ligatures on fonts are enabled by default
+    Background properties now gets more compatibility with different values
+    box-decoration-break: slice/clone
+    tab-size style
+    overflow-wrap: normal/hypernate/break-word
+    support for the units ch and vmax
+    mask-type: alpha
+    new ::cue pseudo-element already covered in the video track section
+    New -webkit-background-composite property (but I couldn’t make it work)
+
+http://www.mobilexweb.com/blog/safari-ios7-html5-problems-apis-review */
 
 
 /* ==|== media queries ======================================================
@@ -1205,6 +1236,8 @@ html>/**/body .selector, x:-moz-any-link, x:default
 @-moz-document url-prefix()
 {
 }
+
+/* http://www.paulirish.com/2009/browser-specific-css-hacks/ */
 
 
 /* The following is supposed to target only Opera browsers http://www.republicof3.com/a-few-cross-browser-css-hacks-every-developer-should-know/?goback=.gde_2071438_member_107474833: */
