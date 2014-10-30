@@ -70,10 +70,15 @@ PRE
 	
  End "normalize" section. */
 
+ /* Also consider adding in the file suggested by http://kennethormandy.com/journal/normalize-opentype-css */
+
 
 /* =============================================================================
    HTML5 display definitions
    ========================================================================== */
+
+
+/* http://dev.opera.com/articles/css-will-change-property/ */
 
 ARTICLE, ASIDE, DETAILS, FIGCAPTION, FIGURE, FOOTER, HEADER, HGROUP, MAIN, NAV, SECTION
 {
@@ -107,19 +112,21 @@ AUDIO:not([controls]), [hidden], TEMPLATE
 	display: none;
 }
 
+:-webkit-full-screen #myObject {
+  font-size: 20px;
+  width: 100%;
+}
+:-moz-full-screen #myObject {
+  font-size: 20px;
+  width: 100%;
+} /* http://www.css-jquery-design.com/#! */
+
+/* CSS3 Inheritance Tips and Tricks – inherit, initial & unset http://www.css-jquery-design.com/#! */
+
 
 /*  Begin "reset/base" section after this comment ends. This section is generally for rules defined in default browser style sheets where there is some variance in the values that are set for them so that they can now have a consistent style applied to them across any browsers, platforms and devices that will use this stylesheet. The values here will generally come from well-known reset style sheets, such as Eric Meyer's, Yahoo's, HTML5 Boilerplate's, etc. They can be kept the same, removed, altered or moved as the developer sees fit. Examples shown here are only examples in this early version. */
 
 
- /* Apply a natural box layout model to all elements; http://paulirish.com/2012/box-sizing-border-box-ftw/ also see: http://tympanus.net/codrops/2012/10/25/kick-start-your-project-a-collection-of-handy-css-snippets/ */
-*, *:before, *:after
-{
-	/* See https://github.com/Schepp/box-sizing-polyfill for IE6/7 */
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	box-sizing: border-box;
-}
 
 /* See https://github.com/Schepp/CSS-Filters-Polyfill */
 
@@ -131,6 +138,11 @@ AUDIO:not([controls]), [hidden], TEMPLATE
 
 HTML
 {
+	/* See https://github.com/Schepp/box-sizing-polyfill for IE6/7 */
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
 	font-size: 62.5%; /* Use rem's for font sizing; See http://csswizardry.com/2011/05/font-sizing-with-rem-could-be-avoided/ */
 	-webkit-font-smoothing: antialiased;
 	-webkit-overflow-scrolling: touch;
@@ -138,6 +150,19 @@ HTML
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	overflow-y: scroll;
+}
+
+*, *:before, *:after
+{
+	-moz-box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+	-o-box-sizing: inherit;
+	box-sizing: inherit; /* http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+}
+
+*
+{
+    image-rendering: optimizequality; /* Seen at https://www.rocket-internet.com/ */
 }
 
 /* prevent BG image flicker upon hover */
@@ -917,6 +942,17 @@ INPUT[type="checkbox"], INPUT[type="radio"]
     /* For styling input[type=number] in webkit; see http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/#input_number; */
 }
 
+/**
+* Fix the cursor style for Chrome's increment/decrement buttons. For certain
+* `font-size` values of the `input`, it causes the cursor style of the
+* decrement button to change from `default` to `text`.
+*/
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
 
 INPUT[type="search"]
 {
@@ -989,6 +1025,8 @@ INPUT:invalid, TEXTAREA:invalid
 
  */
 
+ /* There are also now :required and :optional pseudo-classes; */
+
 
 /* =============================================================================
    Tables. Tables still need cellspacing="0" in the markup (according to your preference)
@@ -1002,6 +1040,7 @@ TABLE
 	font-size: inherit;
 	font: 100%;
 	margin-bottom: 1.4em;
+	table-layout: fixed; /* http://css-tricks.com/fixing-tables-long-strings/ */
 }
 
 CAPTION
@@ -1420,6 +1459,29 @@ Inlined to avoid required HTTP connection: h5bp.com/r
         filter: grayscale(100%);                 /* Future proof or polyfilled */
     }
 
+    /* Some of the following comes from: https://github.com/vladocar/Hartija---CSS-Print-Framework/blob/master/print.css */
+
+    BODY
+    {
+		width:100% !important;
+		margin:0 !important;
+		padding:0 !important;
+		line-height: 1.45;
+		font-family: Garamond,"Times New Roman", serif;
+		color: #000;
+		background: none;
+		font-size: 14pt;
+	}
+
+	/* Headings */
+	h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
+	h1{font-size:19pt;}
+	h2{font-size:17pt;}
+	h3{font-size:15pt;}
+	h4,h5,h6{font-size:14pt;}
+
+    a:link, a:visited { background: transparent; font-weight: 700; text-decoration: underline;color:#333; }
+
     A, A:visited
     {
         text-decoration: underline;
@@ -1440,13 +1502,34 @@ Inlined to avoid required HTTP connection: h5bp.com/r
     .ir A:after,
     A[href^="javascript:"]:after,
     A[href^="#"]:after    
-	 {
+	{
         content: "";
     }
+
+	a:link[href^="http://"]:after,
+	a[href^="http://"]:visited:after { content: " (" attr(href) ") "; font-size: 90%; }
+
+
+	/* Don't show linked images */
+	a[href^="http://"]
+	{
+		color:#000;
+	}
+
+	a[href$=".jpg"]:after, a[href$=".jpeg"]:after,
+	a[href$=".gif"]:after, a[href$=".png"]:after
+	{
+		content: " (" attr(href) ") ";
+		display:none;
+	}
+
+    code { font: 12pt Courier, monospace; }
+	blockquote { margin: 1.2em; padding: 1em; font-size: 12pt; }
 
 	HR
 	{
 		/* page-break-after: always; Is this really the best value? Suggested by Brad Czerniak at: http://css-tricks.com/snippets/css/cross-browser-hr-styling/ */
+		background-color: #ccc;
 	}
 
     PRE, BLOCKQUOTE
@@ -1455,20 +1538,34 @@ Inlined to avoid required HTTP connection: h5bp.com/r
         page-break-inside: avoid;
     }
 
+    /* Table */
+	table { margin: 1px; text-align:left; }
+	th { border-bottom: 1px solid #333; font-weight: bold; }
+	td { border-bottom: 1px solid #333; }
+	th,td { padding: 4px 10px 4px 0; }
+	tfoot { font-style: italic; }
+	caption { background: #fff; margin-bottom:2em; text-align:left; }
+	thead {display: table-header-group;}
+	img,tr {page-break-inside: avoid;}
+
     THEAD
     {
         display: table-header-group; /* h5bp.com/t */
     }
 
-  	 TR, IMG
+  	TR, IMG
     {
         page-break-inside: avoid;
     }
 
     IMG
     {
+    	float: left;
+    	margin: 1em 1.5em 1.5em 0;
         max-width: 100% !important;
     }
+
+	a img { border: none; }
 
     @page
     {
@@ -1479,10 +1576,5 @@ Inlined to avoid required HTTP connection: h5bp.com/r
     {
         orphans: 3;
         widows: 3;
-    }
-
-    H2, H3
-    {
-        page-break-after: avoid;
     }
 }
