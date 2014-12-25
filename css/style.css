@@ -152,6 +152,14 @@ HTML
 	overflow-y: scroll;
 }
 
+@media screen and (min-width: 960px) {
+    HTML
+    {
+        margin-left: calc(100vw - 100%);
+        margin-right: 0;
+    } /* From: http://aykevl.nl/2014/09/fix-jumping-scrollbar */
+}
+
 *, *:before, *:after
 {
 	-moz-box-sizing: inherit;
@@ -503,12 +511,14 @@ SUB, SUP
 
 SUP
 {
-	top: -0.5em;
+	/* top: -0.5em; */
+	bottom: 1ex; /* Suggested by http://webdesign.tutsplus.com/articles/7-css-units-you-might-not-know-about--cms-22573; test to see if it actually works good */
 }
 
 SUB
 {
-	bottom: -0.25em;
+	/* bottom: -0.25em; */
+	bottom: -1ex; /* Suggested by http://webdesign.tutsplus.com/articles/7-css-units-you-might-not-know-about--cms-22573; test to see if it actually works good */
 }
 
 
@@ -761,7 +771,7 @@ TEXTAREA
 	line-height: 1.4;
 }
 
-:-moz-placeholder /* This prefixed version might not be needed anymore? */
+:-moz-placeholder /* This prefixed version might not be needed anymore? Actually it appears to be for Mozilla Firefox versions 4 – 18 */
 { 
 	font-size: .875em; 
 	line-height: 1.4;
@@ -1239,9 +1249,17 @@ These and other media queries like it used here come from http://lessframework.c
 {
 }
 
-/*All ie */
-.selector
+/* This CSS solution will target Internet Explorer 9, 10 and 11: */
+@media screen and (min-width:0\0)
+{ 
+    
+}
+
+/* "Use a combination of Microsoft specific CSS rules to filter IE11:" http://stackoverflow.com/a/22085269 */
+@media all and (-ms-high-contrast:none)
 {
+	.foo { color: green } /* IE10 */
+	*::-ms-backdrop, .foo { color: red } /* IE11 */
 }
 
 /* The following is supposed to target only Webkit browsers (and it seems to work): */
@@ -1542,7 +1560,7 @@ Inlined to avoid required HTTP connection: h5bp.com/r
 	table { margin: 1px; text-align:left; }
 	th { border-bottom: 1px solid #333; font-weight: bold; }
 	td { border-bottom: 1px solid #333; }
-	th,td { padding: 4px 10px 4px 0; }
+	th, td { padding: 4px 10px 4px 0; }
 	tfoot { font-style: italic; }
 	caption { background: #fff; margin-bottom:2em; text-align:left; }
 	thead {display: table-header-group;}
