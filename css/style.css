@@ -17,7 +17,7 @@ See also: https://elad2412.github.io/the-new-css-reset/
 
 A note about formatting, layout: HTML elements are shown in uppercase; in other style sheets outside of this one it is ubiquitous to render HTML elements in lowercase; this probably comes from around 2001 when XHTML was en vogue and people were told to put HTML elements in lowercase, but this actually only applied to elements within a valid XHTML document; it was never a requirement in style sheets (unless you were going to use XML rendered as XHTML, which nobody ever really did). Uppercase is used here because when reading through a style sheet it helps to distinguish HTML elements from id's, classes, type selectors, etc.
 
-To create a final, production version of your style sheet we suggest you remove any comments, minify any white space as you see fit, and use the "CSS Usage" Firebug supplement to scan for any style rules that are not being used by your site and remove those or comment them out as you see fit.
+To create a final production version of your style sheet we suggest you remove any comments, minify any white space as you see fit, and use the "CSS Usage" Firebug supplement (or somethingsimilar) to scan for any style rules that are not being used by your site and remove those or comment them out as you see fit. This style sheet is attempting to include many, if not all, rules and declarations (not necessarily values) a project *might* need. Please feel very free to remove any that your project does not need.
 
 Make sure you are taking advantage of CSS pseudo-classes: http://www.sitepoint.com/getting-to-know-css3-selectors-structural-pseudo-classes/ and http://www.sitepoint.com/getting-to-know-css3-selectors-other-pseudo-classes/
 
