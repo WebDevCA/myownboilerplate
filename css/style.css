@@ -24,8 +24,7 @@ Make sure you are taking advantage of CSS pseudo-classes: http://www.sitepoint.c
 */
 
 
-
-/* Begin "normalize" section. IMPORTANT: This section is only a comment so that style rules that have already been declared by and are universally consistent across default browser style sheets won't have to be processed again if you are going to use them as they are, but at least when they are here in comments you can see at a glance what they are. For any rules that are here that you want to change the attribute value of you can move them to the reset/base section of this stylesheet, or elsewhere as preferred. Most of this information comes from: https://web.archive.org/web/20160221043835/http://css-class.com/test/css/defaults/UA-style-sheet-defaults.htm Please refer to this site for more information about default browser style sheets (might need to replace with up-to-date site).
+/* Begin "normalize" section. IMPORTANT: This section is only a comment so that style rules that have already been declared by and are universally consistent across default browser style sheets won't have to be processed again if you are going to use them as they are, but at least when they are here in comments you can see at a glance what they are. For any rules that are here that you want to change the attribute value of you can move them to the reset/base section of this stylesheet, or elsewhere as preferred. Most of this information comes from: https://web.archive.org/web/20160221043835/http://css-class.com/test/css/defaults/UA-style-sheet-defaults.htm Please refer to this site for more information about default browser style sheets (might need to replace with up-to-date site; one resource: https://browserdefaultstyles.com/).
 
 ADDRESS, BLOCKQUOTE, BODY, CENTER, DD, DIV, DT, FIELDSET,
 FORM, FRAME, FRAMESET, H1, H2, H3, H4, H5, H6,
