@@ -348,6 +348,9 @@ A:hover, A:active
 	outline-width: 0;
 }
 
+a:not([class]) {
+	text-underline-offset: 0.25em; /* https://moderncss.dev/12-modern-css-one-line-upgrades/#text-underline-offset */
+}
 
 /* =============================================================================
    Typography
@@ -822,6 +825,7 @@ BUTTON, HTML [type="button"], [type="reset"], [type="submit"], [type="email"]
 INPUT
 {
 	border-radius: 0; /* from https://github.com/filipelinhares/ress/blob/master/ress.css */
+}
 
 .ie6 INPUT /* Remove if not supporting IE6. */
 {
@@ -1189,7 +1193,7 @@ TABLE
 {
 	border-collapse: collapse;
 	border-spacing: 0;
-    empty-cells: show;
+    	empty-cells: show;
 	font-size: inherit;
 	font: 100%;
 	margin-bottom: 1.4em;
